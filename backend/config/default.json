@@ -4,7 +4,7 @@
     "httpEndpoint": "http://127.0.0.1:8888"
   },
   "graphql": {
-
+    "graphiql": true
   },
   "server": {
     "port": 4000

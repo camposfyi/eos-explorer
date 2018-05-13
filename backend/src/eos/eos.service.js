@@ -10,18 +10,10 @@ const maxListSize = 100;
 class EosService {}
 
 EosService.prototype.getBlockList = async((size = 1) => {
-
   const headBlockNumber = await(getHeadBlockNumber());
-
   const numberOfBlocks = validateSize(size);
-  const blocks = await(fetchBlocks(numberOfBlocks, headBlockNumber));
 
-  return _.map(blocks, block => ({
-    id: block.id,
-    blockNumber: block.block_num,
-    timestamp: block.timestamp,
-    actionCount: _.size(block.input_transactions)
-  }));
+  return fetchBlocks(numberOfBlocks, headBlockNumber);
 });
 
 function fetchBlocks(numberOfBlocks, headBlockNumber) {

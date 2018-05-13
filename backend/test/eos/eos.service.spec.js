@@ -41,16 +41,6 @@ describe('EOS Service', () => {
       assert.equal(list.length, 100);
     }));
 
-    it('has properties number, hash, timestamp, and action count', async(() => {
-      const list = await(eosService.getBlockList());
-      const block = _.first(list);
-
-      assert.equal(_.size(_.keys(block)), 4);
-      assert.ok(_.has(block, 'id'));
-      assert.ok(_.has(block, 'blockNumber'));
-      assert.ok(_.has(block, 'timestamp'));
-      assert.ok(_.has(block, 'actionCount'));
-    }));
   });
   
   

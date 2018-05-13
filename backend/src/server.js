@@ -1,15 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 const config = require('config');
-const service = require('./eos/eos.service');
+const expressGraphQL = require('express-graphql');
+const schema = require('./schema/schema');
 
 const app = express();
 
-app.use('/api/blocks', (req, res) => {
-  return service.getBlockList(req.query.limit)
-    .then(blockList => {
-      res.status(200).send({blocks: blockList});
-    });
-});
+app.use('/graphql', cors(), expressGraphQL({
+  schema,
+  graphiql: config.get('graphql.graphiql')
+}));
+
 
 const port = config.get('server.port');
 app.listen(port, () => {
