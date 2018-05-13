@@ -14,7 +14,7 @@ EosService.prototype.getBlockList = async((size = 1) => {
   const headBlockNumber = await(getHeadBlockNumber());
 
   const numberOfBlocks = validateSize(size);
-  const blocks = await(blockPromises(numberOfBlocks, headBlockNumber));
+  const blocks = await(fetchBlocks(numberOfBlocks, headBlockNumber));
 
   return _.map(blocks, block => ({
     id: block.id,
@@ -24,7 +24,7 @@ EosService.prototype.getBlockList = async((size = 1) => {
   }));
 });
 
-function blockPromises(numberOfBlocks, headBlockNumber) {
+function fetchBlocks(numberOfBlocks, headBlockNumber) {
   const promises = [];
   for(let i=0; i<numberOfBlocks; i++) {
     promises.push(eos.getBlock(headBlockNumber - i));

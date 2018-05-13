@@ -1,15 +1,17 @@
 const express = require('express');
-const app = express();
-
+const config = require('config');
 const service = require('./eos/eos.service');
 
-app.use('/', (req, res) => {
-  return service.getBlockList()
-    .then(block => {
-      res.status(200).send(block);
+const app = express();
+
+app.use('/api/blocks', (req, res) => {
+  return service.getBlockList(req.query.limit)
+    .then(blockList => {
+      res.status(200).send({blocks: blockList});
     });
 });
 
-app.listen(4000, () => {
-  console.log('express server listening...');
+const port = config.get('server.port');
+app.listen(port, () => {
+  console.log(`Express server listening on port ${port}.`);
 });

@@ -5,5 +5,8 @@
   },
   "graphql": {
 
+  },
+  "server": {
+    "port": 4000
   }
 }
