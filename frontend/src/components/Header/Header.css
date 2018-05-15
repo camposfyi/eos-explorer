@@ -1,0 +1,15 @@
+.header {
+    background-color: #443F53;
+    padding: 20px;
+    color: white;
+}
+
+.header-logo {
+    height: 100px;
+}
+
+.header-title {
+    font-size: 1.2em;
+}
+
+
