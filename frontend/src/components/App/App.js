@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BlockList from '../BlockList/BlockList';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 import ApolloClient from 'apollo-client';
 import {InMemoryCache as Cache} from 'apollo-cache-inmemory';
@@ -30,6 +31,7 @@ class App extends Component {
         <div className="App">
           <Header/>
           <BlockList/>
+          <Footer/>
         </div>
       </ApolloProvider>
     );
