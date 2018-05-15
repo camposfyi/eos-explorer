@@ -13,19 +13,19 @@ describe('App', () => {
     shallow(<App/>);
   });
 
-  it('should render a header', () => {
+  it('renders a header', () => {
     const wrapper = shallow(<App />);
     const header = React.createElement(Header);
     expect(wrapper).toContainReact(header);
   });
 
-  it('should render a list of blocks', () => {
+  it('renders a list of blocks', () => {
     const wrapper = shallow(<App/>);
     const blockList = React.createElement(BlockList);
     expect(wrapper).toContainReact(blockList);
   });
 
-  it('should render a footer', () => {
+  it('renders a footer', () => {
     const wrapper = shallow(<App/>);
     const footer = React.createElement(Footer);
     expect(wrapper).toContainReact(footer);

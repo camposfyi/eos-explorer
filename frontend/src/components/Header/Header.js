@@ -6,9 +6,8 @@ class Header extends Component {
   render() {
     return (
       <header className="header text-center">
-        <img src={logo} className="header-logo" alt="logo" />
-        <h1
-          className="header-title">EOS Block Explorer</h1>
+        <img src={logo} className="header-logo" alt="EOS" />
+        <h1 className="header-title">EOS Block Explorer</h1>
       </header>
     )
   }
