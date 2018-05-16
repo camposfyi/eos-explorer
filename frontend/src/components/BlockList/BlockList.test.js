@@ -1,15 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import BlockList from './BlockList';
 
 describe('Block List', () => {
 
   it('renders without crashing', () => {
-    // const div = document.createElement('div');
-    // ReactDOM.render(<BlockList />, div);
+    shallow(<BlockList/>);
   });
 
-  // renders without crashing
   // has a load button
   // button is disabled while fetching
   // button shows spinner while fetching

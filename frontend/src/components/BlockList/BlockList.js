@@ -16,18 +16,32 @@ const GET_BLOCKS = gql`
 }
 `;
 
-const Labels = () => {
+const renderTableHeaders = () => {
   const headers = ['Height', 'Hash', 'Timestamp', 'Actions'];
   return (
-    <thead>
-      <tr>
-        {headers.map(header => (<th>{header}</th>))}
-      </tr>
-    </thead>
+    <div className="list-row list-header">
+      {headers.map(header => (
+        <div className="list-cell">{header}</div>
+      ))}
+    </div>
   );
 };
 
-const Blocks = () => (
+const renderBlocks = (blocks) => {
+  return (
+    <div className="block-list-container">
+      <div className="block-list-wrapper">
+        <div className="block-list">
+          {renderTableHeaders()}
+        </div>
+
+          {blocks}
+      </div>
+    </div>
+  );
+};
+
+const renderBlockList = () => (
   <Query query={GET_BLOCKS}>
     {({ loading, error, data, refetch }) => {
       if (loading) {
@@ -40,18 +54,11 @@ const Blocks = () => (
       const blocks = data.blockList.map(block => <BlocListItem block={block} />);
 
       return (
-        <div className="container list-container">
-        <div className="load-button">
-          <button onClick={() => refetch()}>Load</button>
-        </div>
-        <div className="table-responsive-vertical card">
-          <table id="table" className="table table-hover table-mc-light-blue">
-            {Labels()}
-            <tbody>
-              {blocks}
-            </tbody>
-          </table>
-        </div>
+        <div className="container blocks-container">
+          <div className="load-button-container">
+            <button onClick={() => refetch()}>Load</button>
+          </div>
+          {renderBlocks(blocks)}
         </div>
       );
     }}
@@ -63,7 +70,7 @@ class BlockList extends Component {
   render() {
     return (
       <div>
-        {Blocks()}
+        {renderBlockList()}
       </div>
     );
   }

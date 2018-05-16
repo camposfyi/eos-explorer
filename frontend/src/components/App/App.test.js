@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 import Header from "../Header/Header";
-import 'jest-enzyme';
 import BlockList from "../BlockList/BlockList";
 import Footer from "../Footer/Footer";
 
