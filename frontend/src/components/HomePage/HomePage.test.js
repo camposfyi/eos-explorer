@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import BlockList from './BlockList';
+import HomePage from './HomePage';
 
 describe('Block List', () => {
 
   it('renders without crashing', () => {
-    shallow(<BlockList/>);
+    shallow(<HomePage/>);
   });
 
   // has a load button

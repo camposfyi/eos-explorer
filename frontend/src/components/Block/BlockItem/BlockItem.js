@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class BlockListItem extends Component {
+class BlockItem extends Component {
   render() {
     return (
       <div className="list-row">
@@ -13,4 +13,4 @@ class BlockListItem extends Component {
   }
 }
 
-export default BlockListItem;
+export default BlockItem;

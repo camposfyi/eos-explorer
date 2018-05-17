@@ -1,0 +1,29 @@
+.home-page {
+  padding: 50px 0;
+}
+
+.blocks-container {
+  margin-top: 40px;
+}
+
+.load-button-container {
+  text-align: right;
+}
+
+.load-button-container > button {
+  border-radius: 2px;
+  height: 48px;
+  background-color: #443F52;
+  width: 120px;
+  color: #F4F7F8;
+  text-transform: uppercase;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  outline: none;
+}
+
+.load-button > button:hover {
+  background-color: #201D2C;
+}
+

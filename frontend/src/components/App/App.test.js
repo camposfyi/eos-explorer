@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 import Header from "../Header/Header";
-import BlockList from "../BlockList/BlockList";
+import HomePage from "../HomePage/HomePage";
 import Footer from "../Footer/Footer";
 
 
@@ -20,7 +20,7 @@ describe('App', () => {
 
   it('renders a list of blocks', () => {
     const wrapper = shallow(<App/>);
-    const blockList = React.createElement(BlockList);
+    const blockList = React.createElement(HomePage);
     expect(wrapper).toContainReact(blockList);
   });
 
