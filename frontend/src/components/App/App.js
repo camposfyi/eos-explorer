@@ -18,8 +18,9 @@ class App extends Component {
   createClient() {
     return new ApolloClient({
       link: ApolloLink.from([
-        new HttpLink({uri: 'http://localhost:4000/graphql'}),
-        // new HttpLink({ uri: 'http://ec2-54-172-182-101.compute-1.amazonaws.com:4000/graphql' }),
+        new HttpLink({
+          uri: process.env.REACT_APP_GRAPHQL_URL
+        })
       ]),
       cache: new Cache()
     });
@@ -28,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={this.createClient()}>
-        <div className="App">
+        <div>
           <Header/>
           <HomePage/>
           <Footer/>

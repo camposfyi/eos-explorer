@@ -21,8 +21,8 @@
     "react-test-renderer": "^16.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_GRAPHQL_URL=http://localhost:4000/graphql react-scripts start",
+    "build": "REACT_APP_GRAPHQL_URL=https://eos-explorer.net/graphql react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
