@@ -6,14 +6,24 @@ const renderHeaders = (headers) => {
   return (
     <div className="list-row list-header">
       {headers.map(header => (
-        <div className="list-cell">{header}</div>
+        <div className="list-cell" key={header}>{header}</div>
       ))}
     </div>
   );
 };
 
+const renderEmptyMessage = () => {
+  return (
+    <div className="no-blocks">There aren't any blocks available.</div>
+  );
+};
+
 const renderRows = (blocks) => {
-  return blocks.map(block => <BlockItem block={block} />);
+  if (!blocks || blocks.length === 0) {
+    return renderEmptyMessage();
+  }
+
+  return blocks.map(block => <BlockItem key={block.block_num} block={block} />);
 };
 
 class BlockList extends Component {

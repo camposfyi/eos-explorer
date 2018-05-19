@@ -3,8 +3,12 @@ import BlockItem from './BlockItem';
 import { shallow } from 'enzyme';
 
 describe('Block Item', () => {
-  it('renders without crashing', () => {
+  const block = {
+    input_transactions: []
+  };
 
+  it('renders without crashing', () => {
+    shallow(<BlockItem block={block}/>);
   });
 
   // displays (height, hash, timpestamp, actions)
@@ -13,5 +17,6 @@ describe('Block Item', () => {
   // request block when opened
   // shows spinner while fetching block
   // shows error message if error occurs on fetch
+
 
 });

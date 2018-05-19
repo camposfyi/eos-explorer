@@ -5,7 +5,6 @@ import Header from "../Header/Header";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../Footer/Footer";
 
-
 describe('App', () => {
 
   it('should render without crashing', () => {
@@ -29,10 +28,5 @@ describe('App', () => {
     const footer = React.createElement(Footer);
     expect(wrapper).toContainReact(footer);
   });
-
-
-  // has an apollo client
-  // has a list of blocks
-  // has a footer
 
 });
