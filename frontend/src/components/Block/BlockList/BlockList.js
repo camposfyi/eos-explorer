@@ -19,13 +19,9 @@ const renderRows = (blocks) => {
 class BlockList extends Component {
   render() {
     return (
-      <div className="block-list-container">
-        <div className="block-list-wrapper">
-          <div className="block-list">
-            {renderHeaders(this.props.headers)}
-            {renderRows(this.props.blocks)}
-          </div>
-        </div>
+      <div className="block-list">
+        {renderHeaders(this.props.headers)}
+        {renderRows(this.props.blocks)}
       </div>
     );
   }

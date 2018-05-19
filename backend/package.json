@@ -8,7 +8,8 @@
     "eosjs": "^8.0.0",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
-    "graphql": "^0.13.2"
+    "graphql": "^0.13.2",
+    "graphql-bigint": "^1.0.0"
   },
   "devDependencies": {
     "assert": "^1.4.1",

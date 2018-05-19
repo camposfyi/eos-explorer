@@ -9,7 +9,12 @@ const maxListSize = 100;
 
 class EosService {}
 
-EosService.prototype.getBlockList = async((size = 1) => {
+EosService.prototype.getBlock = async(blockNumber => {
+  const block = await(eos.getBlock(blockNumber));
+  return block;
+});
+
+EosService.prototype.getBlocks = async((size = 1) => {
   const headBlockNumber = await(getHeadBlockNumber());
   const numberOfBlocks = validateSize(size);
 

@@ -7,7 +7,7 @@ import './HomePage.css';
 
 const GET_BLOCKS = gql`
 {
-  blockList(limit:10) {
+  blocks(limit:10) {
     id, 
     block_num, 
     timestamp, 
@@ -32,7 +32,7 @@ const renderHomePageContents = () => (
           <div className="load-button-container">
             <button onClick={() => refetch()}>Load</button>
           </div>
-          <BlockList headers={headers} blocks={data.blockList}/>
+          <BlockList headers={headers} blocks={data.blocks}/>
         </div>
       );
     }}

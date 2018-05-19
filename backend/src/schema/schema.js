@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const BigInt = require('graphql-bigint');
 const eosService = require('../eos/eos.service');
 
 const {
@@ -6,8 +7,7 @@ const {
   GraphQLString,
   GraphQLInt,
   GraphQLSchema,
-  GraphQLList
-
+  GraphQLList,
 } = graphql;
 
 const Transaction = new GraphQLObjectType({
@@ -54,18 +54,25 @@ const Block = new GraphQLObjectType({
     input_transactions: {type: new GraphQLList(GraphQLString)},
     id: {type: GraphQLString},
     block_num: {type: GraphQLInt},
-    ref_block_prefix: {type: GraphQLInt}
+    ref_block_prefix: {type: BigInt}
   }
 });
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
   fields: {
-    blockList: {
+    blocks: {
       type: new GraphQLList(Block),
       args: {limit: {type: GraphQLInt}},
       resolve(parentValue, args) {
-        return eosService.getBlockList(args.limit)
+        return eosService.getBlocks(args.limit)
+      }
+    },
+    block: {
+      type: Block,
+      args: {blockNumber: {type: GraphQLInt}},
+      resolve(parentValue, args) {
+        return eosService.getBlock(args.blockNumber)
       }
     }
   }
