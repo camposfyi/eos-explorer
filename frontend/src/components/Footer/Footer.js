@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './Footer.css';
 import LinkedInLogo from './linkedin.svg';
+import './Footer.css';
 
 class Footer extends Component {
   render() {
