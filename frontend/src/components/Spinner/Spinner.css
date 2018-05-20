@@ -1,8 +1,6 @@
 .spinner {
   position: relative;
   margin: 0 auto;
-  width: 40px;
-  height: 40px;
 }
 
 .spinner .spinner-dot {
@@ -99,7 +97,8 @@
   animation-delay: -0.2s; }
 .spinner .spinner-dot-12:before {
   -webkit-animation-delay: -0.1s;
-  animation-delay: -0.1s; }
+  animation-delay: -0.1s;
+}
 
 @-webkit-keyframes spinner-dot-bounce-delay {
   0%, 80%, 100% {
@@ -119,4 +118,8 @@
       -webkit-transform: scale(1);
       transform: scale(1);
     }
+}
+
+.spinner-text {
+  text-align: center;
 }

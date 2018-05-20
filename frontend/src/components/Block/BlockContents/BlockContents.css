@@ -1,3 +1,7 @@
 .block-contents pre {
   border-radius: 0;
 }
+
+.loading-block {
+  padding: 20px;
+}

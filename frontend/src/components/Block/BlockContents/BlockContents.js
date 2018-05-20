@@ -18,23 +18,35 @@ const getQuery = (blockNumber) => {
   }`
 };
 
-const renderBlockContents = (blockNumber) => (
+const renderSpinner = () => {
+  return (
+    <div className="loading-block">
+      <Spinner size={25} text='Fetching block' />
+    </div>
+  );
+};
+
+const renderError = (error) => {
+  return `Error! ${error.message}`;
+};
+
+const renderRawJson = (block) => {
+  return (
+    <div className="block-contents">
+      <pre>{JSON.stringify(block, null, 2)}</pre>
+    </div>
+  );
+};
+
+const renderBlock = (blockNumber) => (
   <Query query={getQuery(blockNumber)}>
     {({loading, error, data}) => {
       if (loading) {
-        return <Spinner/>
-      }
-
-      if (error) {
-        return `Error! ${error.message}`;
-      }
-
-      if(data) {
-        return (
-          <div className="block-contents">
-            <pre>{JSON.stringify(data.block, null, 2)}</pre>
-          </div>
-        );
+        return renderSpinner();
+      } else if (error) {
+        return renderError(error);
+      } else if(data) {
+        return renderRawJson(data.block);
       }
     }}
   </Query>
@@ -44,7 +56,7 @@ class BlockContents extends Component {
   render() {
     return (
       <div>
-        {renderBlockContents(this.props.blockNumber)}
+        {renderBlock(this.props.blockNumber)}
       </div>
     );
   }

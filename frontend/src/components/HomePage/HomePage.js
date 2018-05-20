@@ -16,25 +16,40 @@ const GET_BLOCKS = gql`
 }
 `;
 
+const renderSpinner = () => {
+  return (
+    <div className='loading-blocks'>
+      <Spinner size={50} text='Fetching blocks' />
+    </div>
+  );
+};
+
+const renderError = (error) => {
+  return `Error! ${error.message}`;
+};
+
+const renderBlocks = (blocks, refetch) => {
+  const headers = ['Height', 'Hash', 'Timestamp', 'Actions'];
+  return (
+    <div>
+      <div className="load-button-container">
+        <button onClick={() => refetch()}>Load</button>
+      </div>
+      <BlockList headers={headers} blocks={blocks}/>
+    </div>
+  );
+};
+
 const renderHomePageContents = () => (
   <Query query={GET_BLOCKS}>
     {({loading, error, data, refetch}) => {
       if (loading) {
-        return <Spinner/>
+        return renderSpinner();
+      } else if (error) {
+        return renderError(error);
+      } else {
+        return renderBlocks(data.blocks, refetch);
       }
-      if (error) {
-        return `Error! ${error.message}`;
-      }
-
-      const headers = ['Height', 'Hash', 'Timestamp', 'Actions'];
-      return (
-        <div>
-          <div className="load-button-container">
-            <button onClick={() => refetch()}>Load</button>
-          </div>
-          <BlockList headers={headers} blocks={data.blocks}/>
-        </div>
-      );
     }}
   </Query>
 );
