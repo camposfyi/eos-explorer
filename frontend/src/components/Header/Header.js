@@ -5,9 +5,9 @@ import './Header.css';
 class Header extends Component {
   render() {
     return (
-      <header className="header text-center">
+      <header className="header">
         <img src={logo} className="header-logo" alt="EOS" />
-        <h1 className="header-title">EOS Block Explorer</h1>
+        <h1>EOS Block Explorer</h1>
       </header>
     )
   }
