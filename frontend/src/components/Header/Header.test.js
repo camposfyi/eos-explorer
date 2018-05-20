@@ -16,6 +16,6 @@ describe('Header', () => {
   it('renders text with the app name', () => {
     const appName = 'EOS Block Explorer';
     const wrapper = shallow(<Header/>);
-    expect(wrapper.find('.header-title').text()).toEqual(appName);
+    expect(wrapper.find('.header h1').text()).toEqual(appName);
   });
 });
