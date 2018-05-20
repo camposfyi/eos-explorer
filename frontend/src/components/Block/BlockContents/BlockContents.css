@@ -3,5 +3,10 @@
 }
 
 .loading-block {
+  text-align: center;
   padding: 20px;
+}
+
+.loading-block p {
+  padding-top: 5px;
 }

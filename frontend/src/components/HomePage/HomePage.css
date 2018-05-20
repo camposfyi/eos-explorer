@@ -1,5 +1,6 @@
 .home-page {
   padding: 50px 0 200px 0;
+  min-height: 100vh;
 }
 
 .blocks-container {
@@ -29,4 +30,16 @@
 
 .loading-blocks {
   padding: 80px;
+  text-align: center;
+  font-size: 3em;
+}
+
+.loading-blocks p {
+  padding-top: 20px;
+  font-size: .7em;
+}
+
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
 }
