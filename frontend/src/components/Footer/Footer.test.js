@@ -9,11 +9,16 @@ describe('Footer', () => {
     shallow(<Footer/>);
   });
 
-  it('should have a linkedIn profile link that opens in new tab', () => {
+  it('has a linkedIn icon', () => {
+    const wrapper = shallow(<Footer/>);
+    expect(wrapper.find('img').prop('src')).toEqual('linkedin.svg');
+  });
+
+  it('has a link to developer profile', () => {
     const wrapper = shallow(<Footer/>);
 
-    expect(wrapper.find('img').prop('src')).toEqual('linkedin.svg');
-    expect(wrapper.find('a').prop('href')).toEqual('https://www.linkedin.com/in/jesus-campos/');
-    expect(wrapper.find('a').prop('target')).toEqual('_blank');
+    const link = wrapper.find('a');
+    expect(link.prop('href')).toEqual('https://www.linkedin.com/in/jesus-campos/');
+    expect(link.prop('target')).toEqual('_blank');
   });
 });
