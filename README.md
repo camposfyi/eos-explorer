@@ -1,6 +1,7 @@
 ### EOS Block Explorer
 
 This project was developed as part of the interview process for [BlockOne - EOS](https://eos.io)
+
 ---
 
 ##### Demo
